@@ -19,45 +19,6 @@ var quotas = jelastic.billing.account.GetQuotas(perEnv + ";"+maxEnvs+";" + perNo
 var group = jelastic.billing.account.GetAccount(appid, session);
 for (var i = 0; i < quotas.length; i++){
     var q = quotas[i], n = toNative(q.quota.name);
-
-    if (n == maxEnvs && envsCount >= q.value){
-        err(q, "already used", envsCount, true);
-        prod = dev = false; break;
-    }
-
-    if (n == maxCloudletsPerRec && maxCloudlets > q.value){
-        err(q, "required", maxCloudlets, true);
-        prod = dev = false;
-    }
-    
-     if (n == diskIOPSlimit && iopsLimit > q.value){
-        err(q, "required", iopsLimit, true);
-        prod = dev = false;
-    }
-
-    if (n == perEnv && nodesPerDevEnvWOStorage > q.value){
-        if (!markup) err(q, "required", nodesPerDevEnvWOStorage, true);
-        prod = dev = false;
-    }
-
-    if (n == perEnv && nodesPerDevEnvWOStorage  == q.value) devStorage = false;
-
-    if (n == perEnv && nodesPerProdEnvWOStorage > q.value){
-        if (!markup) err(q, "required", nodesPerProdEnvWOStorage);
-        prod = false;
-    }
-
-    if (n == perEnv && nodesPerProdEnvWOStorage  == q.value) prodStorage = false;
-
-    if (n == perNodeGroup && nodesPerMasterNG > q.value){
-        if (!markup) err(q, "required", nodesPerMasterNG);
-        prod = false;
-    }
-
-    if (n == perNodeGroup && nodesPerWorkerNG > q.value){
-        if (!markup) err(q, "required", nodesPerWorkerNG);
-        prod = false;
-    }
 }
 var resp = {result:0};
 var url = "data-sciences-corporation/oxidekubernetestrial/v1.17.12/configs/settings.yaml";
