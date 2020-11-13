@@ -41,7 +41,7 @@ if (prod && !prodStorage){
     f[6].value = false;
 }
 
-if (!prod && !dev || group.groupType == 'billing'){
+if (!prod && !dev){
     for (var i = 0; i < f.length; i++) f[i].disabled = true;
     f[3].hidden = false;
     f[3].disabled = false;
