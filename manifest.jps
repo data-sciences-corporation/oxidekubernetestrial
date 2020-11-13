@@ -1,16 +1,16 @@
 type: install
-version: 1.5
-id: kubernetes
-baseUrl: https://raw.githubusercontent.com/jelastic-jps/kubernetes/v1.17.12
+version: 1.17
+id: kubernetestrial
+baseUrl: https://raw.githubusercontent.com/data-sciences-corporation/oxidekubernetestrial/v1.17.12
 description:
   text: /text/description-kube.md
-  short: Kubernetes cluster with automated scaling & cost efficient pay-per-use pricing for running cloud-native microservices.
+  short: Kubernetes cluster for Oxide Trial Accounts
 categories:
   - apps/clusters
   - apps/dev-and-admin-tools
 
 logo: /images/k8s-logo.png
-name: Kubernetes Cluster v1.17.12
+name: Oxide Kubernetes Trial Cluster v1.17.12
 targetRegions:
   type: vz7
 
