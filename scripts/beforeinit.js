@@ -19,25 +19,6 @@ var quotas = jelastic.billing.account.GetQuotas(perEnv + ";"+maxEnvs+";" + perNo
 var group = jelastic.billing.account.GetAccount(appid, session);
 for (var i = 0; i < quotas.length; i++){
     var q = quotas[i], n = toNative(q.quota.name);
-
-    if (n == perEnv && nodesPerDevEnvWOStorage  == q.value) devStorage = false;
-
-    if (n == perEnv && nodesPerProdEnvWOStorage > q.value){
-        if (!markup) err(q, "required", nodesPerProdEnvWOStorage);
-        prod = false;
-    }
-
-    if (n == perEnv && nodesPerProdEnvWOStorage  == q.value) prodStorage = false;
-
-    if (n == perNodeGroup && nodesPerMasterNG > q.value){
-        if (!markup) err(q, "required", nodesPerMasterNG);
-        prod = false;
-    }
-
-    if (n == perNodeGroup && nodesPerWorkerNG > q.value){
-        if (!markup) err(q, "required", nodesPerWorkerNG);
-        prod = false;
-    }
 }
 var resp = {result:0};
 var url = "https://raw.githubusercontent.com/jelastic-jps/kubernetes/v1.18.10/configs/settings.yaml";
