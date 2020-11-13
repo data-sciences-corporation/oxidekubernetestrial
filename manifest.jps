@@ -1,5 +1,5 @@
 type: install
-version: 1.17
+version: 1.5
 id: kubernetestrial
 baseUrl: https://raw.githubusercontent.com/data-sciences-corporation/oxidekubernetestrial/v1.17.12
 description:
