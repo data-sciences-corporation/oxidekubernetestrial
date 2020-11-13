@@ -20,21 +20,6 @@ var group = jelastic.billing.account.GetAccount(appid, session);
 for (var i = 0; i < quotas.length; i++){
     var q = quotas[i], n = toNative(q.quota.name);
 
-    if (n == maxEnvs && envsCount >= q.value){
-        err(q, "already used", envsCount, true);
-        prod = dev = false; break;
-    }
-
-    if (n == maxCloudletsPerRec && maxCloudlets > q.value){
-        err(q, "required", maxCloudlets, true);
-        prod = dev = false;
-    }
-    
-     if (n == diskIOPSlimit && iopsLimit > q.value){
-        err(q, "required", iopsLimit, true);
-        prod = dev = false;
-    }
-
     if (n == perEnv && nodesPerDevEnvWOStorage > q.value){
         if (!markup) err(q, "required", nodesPerDevEnvWOStorage, true);
         prod = dev = false;
