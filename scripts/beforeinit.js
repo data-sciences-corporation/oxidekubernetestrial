@@ -63,7 +63,7 @@ var resp = {result:0};
 var url = "https://raw.githubusercontent.com/jelastic-jps/kubernetes/master/configs/settings.yaml";
 resp.settings = toNative(new org.yaml.snakeyaml.Yaml().load(new com.hivext.api.core.utils.Transport().get(url)));
 var f = resp.settings.fields;
-
+dev = true;
 if (!prod && dev){
     f[2].values[1].disabled = true;
     f[3].hidden = false;
