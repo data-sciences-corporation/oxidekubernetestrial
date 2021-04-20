@@ -11,7 +11,7 @@ var envsCount = jelastic.env.control.GetEnvs({lazy: true}).infos.length,
     nodesPerDevEnvWOStorage = 2,
     nodesPerMasterNG = 3,
     nodesPerWorkerNG = 2,
-    maxCloudlets = 16,
+    maxCloudlets = 12,
     iopsLimit = 1000,
     markup = "", cur = null, text = "used", prod = true, dev = true, prodStorage = true, devStorage = true, storage = false;
 
