@@ -80,13 +80,11 @@ if (prod && !prodStorage){
     f[6].value = false;
 }
 
-if (!prod && !dev || group.groupType == 'trial'){
+if (!prod && !dev){
     for (var i = 0; i < f.length; i++) f[i].disabled = true;
     f[3].hidden = false;
     f[3].disabled = false;
     f[3].markup =  "Production and Development topologies are not available. " + markup + "Please upgrade your account.";
-    if (group.groupType == 'trial')
-        f[3].markup = "Production and Development topologies are not available for " + group.groupType + " account. Please upgrade your account.";
     f[3].height =  60;
     f[6].value = false;
 
